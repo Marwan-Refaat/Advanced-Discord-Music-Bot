@@ -113,12 +113,13 @@ module.exports = {
         const play = async (song) => {
             const queue = message.client.queue.get(message.guild.id);
             if (!song) {
+                await message.guild.me.voice.kick(message.guild.me.id);
                 sendError(
                     "Tb yala salam",
                     message.channel
                 );
                 message.client.queue.delete(message.guild.id);
-                await message.guild.me.voice.kick(message.guild.me.id);
+                
                 return;
             }
             let stream;
