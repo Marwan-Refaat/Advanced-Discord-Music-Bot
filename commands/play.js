@@ -114,10 +114,11 @@ module.exports = {
             const queue = message.client.queue.get(message.guild.id);
             if (!song) {
                 sendError(
-                    "Leaving the voice channel because I think there are no songs in the queue.",
+                    "Tb yala salam",
                     message.channel
                 );
                 message.client.queue.delete(message.guild.id);
+                await message.guild.me.voice.kick(message.guild.me.id);
                 return;
             }
             let stream;
